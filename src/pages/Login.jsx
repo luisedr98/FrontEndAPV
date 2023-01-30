@@ -1,14 +1,14 @@
-import React from "react";
+import { Link } from "react-router-dom";
 
 const Login = () => {
   return (
     <>
       <div>
-        <h1 className="text-indigo-600 font-black text-6xl">
-          Inicia sesión y administrar tus <span className="text-black">Pacientes</span>
+        <h1 className="text-cyan-600 font-black text-5xl lg:text-6xl md:text-left">
+          Inicia sesión y Administrar tus <span className="text-black">Pacientes</span>
         </h1>
       </div>
-      <div>
+      <div className="mt-12 md:mt-5 shadow-xl px-5 pt-7 rounded-xl bg-white">
         <form action="">
           <div className="my-5">
             <label className="text-gray-600 font-bold uppercase text-xl">Email</label>
@@ -29,11 +29,14 @@ const Login = () => {
             <input
               type="submit"
               value="iniciar sesión"
-              className="w-full bg-indigo-600 py-3 px-10 font-bold uppercase text-white rounded-xl mt-3 hover:cursor-pointer
-              hover:bg-indigo-800 md:w-auto" 
-            
+              className="w-full bg-cyan-600 py-3 px-10 font-bold uppercase text-white rounded-xl mt-3 hover:cursor-pointer
+              hover:bg-cyan-800 lg:w-1/2 lg:block mx-auto" 
             />
         </form>
+        <nav className="my-5 lg:flex justify-between">
+          <Link className="block my-3 text-center text-gray-600" to="/registrar">¿No tienes una cuenta? Registrate</Link>
+          <Link className="block my-3 text-center text-gray-600" to="/olvide-password">¿Olvide mi contraseña?</Link>
+        </nav>
       </div>
     </>
   );
