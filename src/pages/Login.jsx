@@ -8,7 +8,7 @@ const Login = () => {
           Inicia sesión y Administrar tus <span className="text-black">Pacientes</span>
         </h1>
       </div>
-      <div className="mt-12 md:mt-5 shadow-xl px-5 pt-7 rounded-xl bg-white">
+      <div className="mt-12 md:mt-5 shadow-xl px-5 py-5 rounded-xl bg-white">
         <form action="">
           <div className="my-5">
             <label className="text-gray-600 font-bold uppercase text-xl">Email</label>
@@ -33,7 +33,7 @@ const Login = () => {
               hover:bg-cyan-800 lg:w-1/2 lg:block mx-auto" 
             />
         </form>
-        <nav className="my-5 lg:flex justify-between">
+        <nav className="my-3 lg:flex justify-between">
           <Link className="block my-3 text-center text-gray-600" to="/registrar">¿No tienes una cuenta? Registrate</Link>
           <Link className="block my-3 text-center text-gray-600" to="/olvide-password">¿Olvide mi contraseña?</Link>
         </nav>
