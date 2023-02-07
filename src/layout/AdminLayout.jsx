@@ -17,7 +17,7 @@ function AdminLayout() {
         <Header />
         
           {auth?._id ? (
-            <main className="container mx-auto my-10">
+            <main className="container mx-auto my-5 px-5">
               <Outlet/>
             </main>
           ): <Navigate to='/' />} 
