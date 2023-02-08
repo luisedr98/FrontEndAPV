@@ -5,7 +5,7 @@ import Alerta from "../components/Alerta";
 
 import useAuth from "../hooks/useAuth"
 
-import { swAlert, swResponse } from "../helpers/SweetAlert";
+import { swAlert, swResponse} from "../helpers/sweetMethods"
 
 function EditarPerfil() {
     const { auth, editarPerfil } = useAuth();

@@ -1,5 +1,5 @@
 import usePacientes from "../hooks/usePacientes";
-import { swAlert, swResponse } from "../helpers/SweetAlert";
+import { swAlert, swResponse} from "../helpers/sweetMethods"
 
 function Paciente({paciente}) {
     const {_id, nombre, email, propietario, fecha, sintomas} = paciente;

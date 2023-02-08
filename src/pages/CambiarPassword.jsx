@@ -5,7 +5,7 @@ import useAuth from "../hooks/useAuth";
 
 import { useState } from "react";
 
-import { swAlert, swResponse } from "../helpers/SweetAlert";
+import { swAlert, swResponse} from "../helpers/sweetMethods"
 
 function CambiarPassword() {
     const [alerta, setAlerta] = useState({});

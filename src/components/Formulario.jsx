@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import Alerta from "../components/Alerta";
 import usePacientes from "../hooks/usePacientes";
-import { swAlert, swResponse} from "../helpers/SweetAlert";
+import { swAlert, swResponse} from "../helpers/sweetMethods"
 
 
 
