@@ -1,7 +1,8 @@
 import { useState, useEffect } from "react";
 import Alerta from "../components/Alerta";
 import usePacientes from "../hooks/usePacientes";
-import Swal from 'sweetalert2'
+import { swAlert, swResponse} from "../helpers/SweetAlert";
+
 
 
 function Formulario() {
@@ -36,23 +37,19 @@ function Formulario() {
             return;
         }
 
-        await guardarPaciente({nombre, propietario, email, fecha, sintomas, id})
-        
-        setAlerta({});
-
-        Swal.fire({
-            position: 'center',
-            icon: 'success',
-            title: 'Se ha guardado correctamente',
-            showConfirmButton: true
-          })
-
+        const {isConfirmed} = await swAlert();
+        if (isConfirmed){
+            const {error, message} = await guardarPaciente({nombre, propietario, email, fecha, sintomas, id});
+            swResponse(message, error);
+        }
+    
         setNombre('');
         setPropietario('');
         setEmail('');
         setFecha('');
         setSintomas('');
         setId(null);
+        setAlerta({})
     }
 
     const {mensaje} = alerta;

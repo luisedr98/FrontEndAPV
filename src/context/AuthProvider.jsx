@@ -23,7 +23,6 @@ const AuthProvider = ({children}) => {
             }
             try {
                 const {data} = await clienteAxios('/veterinarios/perfil', config);
-                setAuth(data);
             } catch (error) {
                 console.log(error);
             }
@@ -36,13 +35,61 @@ const AuthProvider = ({children}) => {
         setAuth({});
     }
 
+    const editarPerfil = async datos => {
+        try{
+            const token = localStorage.getItem('apv_token');
+            const config = {
+                headers: {
+                    'Content-Type': 'application/json',
+                    Authorization : `Bearer ${token}`
+                }
+            }
+            const {data} = await clienteAxios.put(`/veterinarios/perfil/${datos._id}`, datos, config);
+            setAuth(data);
+            return{
+                error: false,
+                message: "Perfil modificado"
+            }
+        
+        }catch(err){
+            return {
+                error: true,
+                message: err.response.data.message
+            }
+        }
+    }
+
+    const CambiarPassword = async(datos) =>{
+        try{
+            const token = localStorage.getItem('apv_token');
+            const config = {
+                headers: {
+                    'Content-Type': 'application/json',
+                    Authorization : `Bearer ${token}`
+                }
+            }
+            const {data} = await clienteAxios.put('/veterinarios/actualizar-password', datos, config);
+            return {
+                message: data.message,
+                error: false
+            }
+        }catch(err){
+            return{
+                message: err.response.data.message,
+                error: true
+            }
+        }
+    }
+
     return (
         <AuthContext.Provider
         value={{
             auth,
             setAuth,
             cargando,
-            cerrarSesion
+            cerrarSesion,
+            editarPerfil,
+            CambiarPassword
         }}>
             {children}
         </AuthContext.Provider>

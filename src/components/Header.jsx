@@ -13,7 +13,7 @@ function Header() {
         </h1>
         <nav className="flex flex-col items-center gap-3 lg:gap-5 md:flex-row mt-5 md:mt-0">
           <Link to="/admin" className="font-bold text-cyan-100 text-sm hover:text-white uppercase">Inicio</Link>
-          <Link to="/perfil" className="font-bold text-cyan-100 text-sm hover:text-white uppercase">Perfil</Link>
+          <Link to="/admin/perfil" className="font-bold text-cyan-100 text-sm hover:text-white uppercase">Perfil</Link>
           <button
           type="button"
           className="font-bold text-cyan-100 hover:text-white text-sm uppercase"

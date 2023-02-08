@@ -1,4 +1,5 @@
 import usePacientes from "../hooks/usePacientes";
+import { swAlert, swResponse } from "../helpers/SweetAlert";
 
 function Paciente({paciente}) {
     const {_id, nombre, email, propietario, fecha, sintomas} = paciente;
@@ -8,6 +9,16 @@ function Paciente({paciente}) {
     const formatearFecha = fecha => {
         const nuevaFecha = new Date(fecha.substring(0,10));
         return new Intl.DateTimeFormat('es-US', {timeZone : "UTC", dateStyle : 'long'}).format(nuevaFecha);
+    }
+
+    const handleEliminar = async(e) => {
+        console.log('ingresando')
+        e.preventDefault();
+        const {isConfirmed} = await swAlert();
+        if(isConfirmed){
+            const {error, message} = await eliminarPaciente(_id);
+            swResponse(message, error);
+        }
     }
     
   return (
@@ -32,7 +43,7 @@ function Paciente({paciente}) {
             <button
                 type='button' 
                 className='w-full my-2 md:w-fit md:my-0 py-2 px-10 bg-red-600 uppercase text-white font-bold rounded hover:bg-red-700'
-                onClick={()=>eliminarPaciente(_id)}
+                onClick={handleEliminar}
                 >
                 Eliminar</button>
         </div>
